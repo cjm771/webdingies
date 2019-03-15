@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+}
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+}
+.container {
+  max-width: 750px;
+  margin: 0px auto;
+}
+
+.shape {
+  position: fixed;
+  background: #000;
+  width: 1rem;
+  height: 1rem;
+}
+
+.square {
+  background: #e45b92;
+}
+
+.circle {
+  background: #63d86b;
+  border-radius: 50%;
+}
+
+.triangle {
+  background: none;
+  border-left: .5rem solid transparent;
+  border-right: .5rem solid transparent;
+  border-bottom: 1rem solid #2ea4ff;
+}
