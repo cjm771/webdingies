@@ -35,7 +35,7 @@
 
   // init webdingies
   new WebDingies({
-    el: '.shape', //selector || default: [data-wd-speed]
+    el: '.shape, .container', //selector || default: [data-wd-speed]
     // .2-0.5 vs. .2,.5 vs. .2
     speed:  '.025, 0.05, .01', // px specified as an array or num to be inserted in wildcard * slots
     angle: '0, 90, 180 -> 360', // angle offset from mouse, array or num to be inserted in wildcard * slots

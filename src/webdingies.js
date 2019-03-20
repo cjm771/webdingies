@@ -1,18 +1,19 @@
- 'use strict';
- /*
- * webdingiesjs.js v0.500 
- * http://webdingiesjs.chris-malcolm.com
- *
- * Copyright 2019, Chris Malcolm
- * http://chris-malcolm.com/
- *
- * Licensed under the MIT license:
- * http://www.opensource.org/licenses/MIT
- *
- *
- *  A library for dom transforms based on  mouse movements
- *
- */
+/*!
+* webdingiesjs.js v0.500 
+* http://webdingiesjs.chris-malcolm.com
+*
+* Copyright 2019, Chris Malcolm
+* http://chris-malcolm.com/
+*
+* Licensed under the MIT license:
+* http://www.opensource.org/licenses/MIT
+*
+*
+*  A library for dom transforms based on  mouse movements
+*
+*/
+
+'use strict';
 
 var WebDingies = {};
 
