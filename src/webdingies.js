@@ -1,6 +1,6 @@
 /*!
 * webdingiesjs.js v0.500 
-* http://webdingiesjs.chris-malcolm.com
+* https://github.com/cjm771/webdingies
 *
 * Copyright 2019, Chris Malcolm
 * http://chris-malcolm.com/
