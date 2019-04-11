@@ -1,4 +1,4 @@
-# webdingies.js v0.500 
+# webdingies.js v0.510 
 
 A dead-simple js library for dom transforms based on mouse movements for a playful parallax-like effect.
 
