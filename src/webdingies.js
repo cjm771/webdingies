@@ -1,5 +1,5 @@
 /*!
-* webdingiesjs.js v0.500 
+* webdingiesjs.js v0.510 
 * https://github.com/cjm771/webdingies
 *
 * Copyright 2019, Chris Malcolm
@@ -29,6 +29,15 @@ var WebDingies = {};
     this.onMouseMove = this.onMouseMove.bind(this);
     this.init(opts);
   
+  };
+
+  // convert
+  var convertElToArr = function($els) {
+    var array = [];
+    for (var i = $els.length >>> 0; i--;) { 
+      array[i] = $els[i];
+    }
+    return array;
   };
   
   WebDingies.prototype.vecUtils = {
@@ -117,10 +126,9 @@ var WebDingies = {};
     ];
     var attName, defaultMetric, overrideMetric, computedDataAttName, parsedValue;
     // iterate through each el 
-    $els.forEach((function($el) {
+    convertElToArr($els).forEach((function($el) {
       atts.forEach((function(arr) {
         attName = arr[0];
-        console.log(arr[0], attName);
         computedDataAttName = this.getComputedDataAttName(arr[1]);
         defaultMetric = this.opts[arr[1]];
         overrideMetric = this.opts[arr[2]];
@@ -168,10 +176,9 @@ var WebDingies = {};
   WebDingies.prototype.onMouseMove = function(e) {
     var centerPoint =  [0,0];
     var vec = this.vecUtils.vector2Pt( centerPoint, this.vecUtils.getMousePos(e));
-    // console.log("centerpoint:", centerPoint, "mouse:", this.vecUtils.getMousePos(e), "vector:", vec, "angle:", this.vecUtils.vecAngle(vec), "magnitude:", this.vecUtils.magnitude(vec));
     
     if ($els) {
-      $els.forEach((function($el) {
+      convertElToArr($els).forEach((function($el) {
         this.vecUtils.translateObject($el, vec, this.getComputedDataAttName('speed'), this.getComputedDataAttName('angle'));
       }).bind(this));
     }
@@ -186,11 +193,5 @@ var WebDingies = {};
   WebDingies.prototype.destroyEventTracking = function() {
     document.removeEventListener('mousemove', this.onMouseMove, true);
   };
-  
-  // update
-  // WebDingies.prototype.update = function(options) {
-
-  // };
-  
   
 })();
