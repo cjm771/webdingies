@@ -6,7 +6,7 @@
   var AMOUNT_OF_SHAPES = MODE === 'SVG' ? 15 : 10;
   
   // init demo shapes
-  var el, elInner, svg;
+  var elInner, svg;
   var availableSvgs = document.querySelectorAll('.random_svgs > svg');
   Array.from({length: AMOUNT_OF_SHAPES}).forEach(function(el) {
     el = document.createElement('div');
@@ -42,5 +42,6 @@
     overrideSpeed: false, //override the hardcoded attribute of speed and reassign
     overrideAngle: true, //override the hardcoded attribute of angle and reassign
   });
+  
   
 })();

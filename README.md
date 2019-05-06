@@ -13,6 +13,10 @@ Tested to run on IE10+ and modern browsers
 
 ## Changelog
 
+**v0.520**
+  - added selector support for jquery style objects and dom objects instead of just string selector
+  - instance bug fix
+
 **v0.510**
   - removed foreach on dom element (IE 11 support)
   - misc fixes

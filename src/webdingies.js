@@ -1,5 +1,5 @@
 /*!
-* webdingiesjs.js v0.510 
+* webdingiesjs.js v0.520 
 * https://github.com/cjm771/webdingies
 *
 * Copyright 2019, Chris Malcolm
@@ -19,13 +19,13 @@ var WebDingies = {};
 
 (function(){
 
-  var $els;
+  
   var COMPUTED_SUFFIX = 'comp';
   var SPEED_ATTR = 'data-wd-speed';
   var ANGLE_ATTR = 'data-wd-angle';
 
   WebDingies = function(opts) {
-  
+    this.$els = null;
     this.onMouseMove = this.onMouseMove.bind(this);
     this.init(opts);
   
@@ -104,7 +104,18 @@ var WebDingies = {};
     };
 
     this.destroyEventTracking();
-    $els = document.querySelectorAll(this.opts.el);
+    if (typeof this.opts.el === 'object') {
+      if (window.jQuery !== undefined && this.opts.el instanceof jQuery) {
+        this.$els = this.opts.el.get();
+      }
+      if (this.opts.el instanceof Element || this.opts.el[0] instanceof Element) {
+        this.$els = this.opts.el[0] ? this.opts.el : [this.opts.el];
+      }  else {
+        throw 'Element selector must be selector string|Dom Element|Jquery-like Element. Could not identify the object given.'
+      }
+    } else {
+      this.$els = document.querySelectorAll(this.opts.el);
+    }
     this.calculateComputedDataAttributes();
     this.addEventTracking();
   };
@@ -126,7 +137,7 @@ var WebDingies = {};
     ];
     var attName, defaultMetric, overrideMetric, computedDataAttName, parsedValue;
     // iterate through each el 
-    convertElToArr($els).forEach((function($el) {
+    convertElToArr(this.$els).forEach((function($el) {
       atts.forEach((function(arr) {
         attName = arr[0];
         computedDataAttName = this.getComputedDataAttName(arr[1]);
@@ -177,8 +188,8 @@ var WebDingies = {};
     var centerPoint =  [0,0];
     var vec = this.vecUtils.vector2Pt( centerPoint, this.vecUtils.getMousePos(e));
     
-    if ($els) {
-      convertElToArr($els).forEach((function($el) {
+    if (this.$els) {
+      convertElToArr(this.$els).forEach((function($el) {
         this.vecUtils.translateObject($el, vec, this.getComputedDataAttName('speed'), this.getComputedDataAttName('angle'));
       }).bind(this));
     }
